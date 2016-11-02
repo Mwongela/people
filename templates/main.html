@@ -1,0 +1,70 @@
+<div class="container" style="padding: 20px;">
+
+	<div class="row">
+      <div class="col s12"><h1 style="font-size: 32px;">People app</h1></div>
+	</div>
+
+	<div class="row">
+
+      <div class="col s12 m5 l4">
+		<div class="card-panel">
+			<div class="section">
+				<h5 class="center">Add new person</h5>
+				<div class="divider" style="margin-bottom: 10px;"></div>
+				<form ng-submit="addNewPerson();">
+					<p ng-show="error !== ''" class="red-text center" style="width: 100%;">{{error}}</p>
+				
+					<div class="input-field">
+						<input id="name" type="text" class="validate" ng-model="newPerson.name">
+						<label for="name" data-error="wrong" data-success="">Name</label>
+					</div>
+
+					<div class="input-field">
+						<input id="age" type="number" class="validate" ng-model="newPerson.age">
+						<label for="age" data-error="wrong" data-success="">Age</label>
+					</div>
+
+					<div class="input-field">
+						<input id="phoneNumber" type="tel" class="validate" ng-model="newPerson.phoneNumber">
+						<label for="phoneNumber" data-error="wrong" data-success="">Phone Number</label>
+					</div>
+
+					<div class="input-field">
+						<input type="submit" ng-show="loading === false" value="Add Person" class="waves-effect waves-light btn" style="width: 100%;"/>
+						<div id="progress" class="progress" ng-show="loading === true">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+      </div>
+
+      <div class="col s12 m7 l8">
+		  <div class="section">
+				<h5 class="center">{{persons.length}} Record(s)</h5>
+
+				<table class="centered" ng-show="persons.length > 0">
+					<thead>
+					<tr>
+						<th data-field="id">Name</th>
+						<th data-field="name">Age</th>
+						<th data-field="price">Phone Number</th>
+					</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="person in persons">
+							<td>{{person.name}}</td>
+							<td>{{person.age}}</td>
+							<td>{{person.phoneNumber}}</td>
+						</tr>
+					</tbody>
+				</table>
+		  </div>
+
+      </div>
+
+    </div>
+
+</div>
